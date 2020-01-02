@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'footerflex',
@@ -10,9 +11,13 @@ export class FooterFlexComponent {
     @Input() achievementsButtonVisible: boolean;
     @Input() workplanButtonVisible: boolean;
 
-    constructor(){
+    constructor(private rtr: Router){
         this.affirmationsButtonVisible = true;
         this.achievementsButtonVisible = true;
         this.workplanButtonVisible = true;
+    }
+
+    navigateTo(direction: string) {
+        this.rtr.navigateByUrl(direction);
     }
 }

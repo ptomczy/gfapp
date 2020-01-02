@@ -6,7 +6,12 @@ const routes: Routes = [
     path: '',
     //loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
     loadChildren: () => import('./homepage/homepage.module').then(m => m.HomePageModule)
+  },
+  {
+    path: 'wrkpln',
+    loadChildren: () => import('./workplan/workplan.module').then(m => m.WorkplanModule)
   }
+
 ];
 @NgModule({
   imports: [
