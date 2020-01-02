@@ -8,7 +8,7 @@ const routes: Routes = [
     loadChildren: () => import('./homepage/homepage.module').then(m => m.HomePageModule)
   },
   {
-    path: 'wrkpln',
+    path: 'workplan',
     loadChildren: () => import('./workplan/workplan.module').then(m => m.WorkplanModule)
   }
 
