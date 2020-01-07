@@ -10,6 +10,10 @@ const routes: Routes = [
   {
     path: 'workplan',
     loadChildren: () => import('./workplan/workplan.module').then(m => m.WorkplanModule)
+  },
+  {
+    path: 'affirmations',
+    loadChildren: () => import('./affirmations/affirmation.module').then(m => m.AffirmationModule)
   }
 
 ];
