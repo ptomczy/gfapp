@@ -27,15 +27,17 @@ export class FooterFlexComponent {
         switch(direction) {
             case '/workplan':
                 {
-                    console.log('CaptionReplacedByHome: ', this.captionReplacedByHome, ' , direction: ', direction);
+                    console.log('CaptionReplacedByHome: ', this.captionReplacedByHome, ' , direction: ', direction, ' , isHomeCaptionDisplayed: ', this.isHomeCaptionDisplayed);
 
                     if(this.captionReplacedByHome != '') {
                         this.buttonWorkplanCaption = 'Workplan';
                         this.captionReplacedByHome = '';
+                        this.isHomeCaptionDisplayed = true;
                         this.rtr.navigateByUrl('/home');
                     } else {
                         this.buttonWorkplanCaption = 'Home';
                         this.captionReplacedByHome = 'Workplan';
+                        this.isHomeCaptionDisplayed = false;
                         this.rtr.navigateByUrl('/workplan');
                     }
                     break;

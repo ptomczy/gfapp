@@ -1,7 +1,14 @@
 <ion-footer>
     <ion-grid>
         <ion-row class="ion-justify-content-center">
-            <ion-button *ngIf="workplanButtonVisible" class="footerButton" (click)="navigateTo('/workplan')">{{buttonWorkplanCaption}}</ion-button>
+            <ion-button 
+                *ngIf="workplanButtonVisible" 
+                class="footerButton homeActive"
+                (click)="navigateTo('/workplan')"
+                [ngClass]="isHomeCaptionDisplayed == true ? 'homeActive' : 'notHomeActive'"
+                >
+                {{buttonWorkplanCaption}}
+            </ion-button>
             <ion-button *ngIf="affirmationsButtonVisible" class="footerButton" (click)="navigateTo('/affirmations')">{{buttonAffirmationsCaption}}</ion-button>
             <ion-button *ngIf="achievementsButtonVisible" class="footerButton"(click)="navigateTo('/achievements')">{{buttonAchievementsCaption}}</ion-button>
         </ion-row>
