@@ -1,16 +1,55 @@
 <ion-footer>
     <ion-grid>
-        <ion-row class="ion-justify-content-center">
+        <!-- <ion-row class="ion-justify-content-center">
             <ion-button 
                 *ngIf="workplanButtonVisible" 
-                class="footerButton homeActive"
+                class="footerButton "
                 (click)="navigateTo('/workplan')"
-                [ngClass]="isHomeCaptionDisplayed == true ? 'homeActive' : 'notHomeActive'"
+                [ngClass]="(isHomeCaptionDisplayed == true && captionReplacedByHome == 'Workplan') ? 'homeActive' : 'notHomeActive'"
                 >
                 {{buttonWorkplanCaption}}
             </ion-button>
-            <ion-button *ngIf="affirmationsButtonVisible" class="footerButton" (click)="navigateTo('/affirmations')">{{buttonAffirmationsCaption}}</ion-button>
-            <ion-button *ngIf="achievementsButtonVisible" class="footerButton"(click)="navigateTo('/achievements')">{{buttonAchievementsCaption}}</ion-button>
+            <ion-button 
+                *ngIf="affirmationsButtonVisible" 
+                class="footerButton" 
+                (click)="navigateTo('/affirmations')"
+                [ngClass]="(isHomeCaptionDisplayed == true && captionReplacedByHome == 'Affirmations') ? 'homeActive' : 'notHomeActive'"
+                >
+                {{buttonAffirmationsCaption}}
+            </ion-button>
+            <ion-button 
+                *ngIf="achievementsButtonVisible" 
+                class="footerButton"
+                (click)="navigateTo('/achievements')"
+                [ngClass]="(isHomeCaptionDisplayed == true && captionReplacedByHome == 'Achievements') ? 'homeActive' : 'notHomeActive'"
+                >
+                {{buttonAchievementsCaption}}
+            </ion-button> -->
+            <ion-row class="ion-justify-content-center">
+                <ion-button 
+                    *ngIf="workplanButtonVisible" 
+                    class="footerButton "
+                    (click)="navigateTo('/workplan')"
+                    [ngClass]="buttonWorkplanCaption == 'Home' ? 'homeActive' : 'notHomeActive'"
+                    >
+                    {{buttonWorkplanCaption}}
+                </ion-button>
+                <ion-button 
+                    *ngIf="affirmationsButtonVisible" 
+                    class="footerButton" 
+                    (click)="navigateTo('/affirmations')"
+                    [ngClass]="buttonAffirmationsCaption == 'Home' ? 'homeActive' : 'notHomeActive'"
+                    >
+                    {{buttonAffirmationsCaption}}
+                </ion-button>
+                <ion-button 
+                    *ngIf="achievementsButtonVisible" 
+                    class="footerButton"
+                    (click)="navigateTo('/achievements')"
+                    [ngClass]="buttonAchievementsCaption == 'Home' ? 'homeActive' : 'notHomeActive'"
+                    >
+                    {{buttonAchievementsCaption}}
+                </ion-button>
         </ion-row>
     </ion-grid>
 </ion-footer>

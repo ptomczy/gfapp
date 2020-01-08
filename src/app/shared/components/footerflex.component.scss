@@ -3,9 +3,10 @@
     height: 40px;
 }
 .homeActive {
-        color: red !important;
+        border: solid 5px black;
+        border-radius: 5px;
 }
 
 .notHomeActive {
-        color: green !important; 
+        border: none;   
 }

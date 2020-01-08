@@ -14,8 +14,11 @@ const routes: Routes = [
   {
     path: 'affirmations',
     loadChildren: () => import('./affirmations/affirmation.module').then(m => m.AffirmationModule)
+  },
+  {
+    path: 'achievements',
+    loadChildren: () => import('./achievements/achievements.module').then(m => m.AchievementsModule)
   }
-
 ];
 @NgModule({
   imports: [
