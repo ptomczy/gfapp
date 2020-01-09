@@ -3,8 +3,13 @@
     height: 40px;
 }
 .homeActive {
-        border: solid 5px black;
-        border-radius: 5px;
+        // border: solid 5px black;
+        // border-radius: 15px;
+        --background: var(--ion-color-warning);
+        --background-hover: var(--ion-color-primary) ;
+        &:hover{
+               
+        }
 }
 
 .notHomeActive {

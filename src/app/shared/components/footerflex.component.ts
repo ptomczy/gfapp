@@ -78,7 +78,7 @@ export class FooterFlexComponent {
     // }
 
     navigateTo(direction: string) {
-        console.log(' , direction: ', direction, ' , isHomeCaptionDisplayed: ', this.isHomeCaptionDisplayed);
+        //console.log(' , direction: ', direction, ' , isHomeCaptionDisplayed: ', this.isHomeCaptionDisplayed);
         switch(direction) {
             case '/workplan':
                 {
