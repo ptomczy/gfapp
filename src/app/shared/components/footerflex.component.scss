@@ -1,15 +1,17 @@
 .footerButton {
     width: 160px;
     height: 40px;
+    --background: var(--ion-color-dark);
+    --background-hover: var(--ion-color-dark);
 }
 .homeActive {
         // border: solid 5px black;
         // border-radius: 15px;
-        --background: var(--ion-color-warning);
-        --background-hover: var(--ion-color-primary) ;
-        &:hover{
+        --background: var(--ion-color-medium-shade);
+        --background-hover: var(--ion-color-medium-shade);
+        // &:hover{
                
-        }
+        // }
 }
 
 .notHomeActive {
