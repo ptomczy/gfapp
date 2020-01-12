@@ -3,8 +3,8 @@ export interface IGoal {
     parentId: string;
     name: string;
     description: string;
-    startDate: Date;
-    endDate: Date;
-    timeSpent: Date;
-    lastActivityDate: Date;
+    startDate: Date | string;
+    endDate: Date | string;
+    timeSpent: Date | string;
+    lastActivityDate: Date | string;
 }

@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { ITask } from 'src/app/taskplan/models/taskplan.model';
+import { TaskplanService } from 'src/app/taskplan/sevices/taskplan.service';
 
 @Component({
     selector: 'homePage',
@@ -6,5 +8,15 @@ import { Component } from "@angular/core";
     styleUrls: ['homepage.page.scss']
 })
 export class HomePage {
-    constructor(){}
+
+    private todayTasks: Array<ITask>;
+
+    constructor(private taskService: TaskplanService){
+    }
+
+    clickedButton(){
+        this.taskService.getTodayTasks().then(x => {
+            this.todayTasks = x;
+        });
+    }
 }
