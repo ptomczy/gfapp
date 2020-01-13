@@ -1,0 +1,29 @@
+
+<ion-item-divider>
+    <ion-label>
+            {{scopeInfo}}
+    </ion-label>
+</ion-item-divider>
+
+<!-- <ion-virtual-scroll [items]="tasks">
+    <task-comp *ngFor="let tsk of tasks" [taskName]="tsk.name"></task-comp>
+</ion-virtual-scroll> -->
+
+<ion-list>
+    <ion-reorder-group (ionItemReorder)="onRenderItems($event)" disabled="false">
+        <task-comp *ngFor="let tsk of tasks" [taskName]="tsk.name">
+        <!-- <ion-item *ngFor="let tsk of tasks">
+            <ion-label>
+                {{tsk.name}}
+            </ion-label>
+            <ion-reorder></ion-reorder>
+        </ion-item> -->
+
+        a może ng content?
+            
+        </task-comp>
+    </ion-reorder-group>
+</ion-list>
+
+
+    

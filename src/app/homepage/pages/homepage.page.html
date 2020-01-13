@@ -8,12 +8,7 @@
   
   <ion-content>
 
-    <ion-button (click)="clickedButton()">Użyj przycisku</ion-button>
-    <div>
-      <ul>
-        <li *ngFor="let itm of todayTasks">{{itm.name}}</li>
-      </ul>
-    </div>
+    <task-list [tasks]="todayTasks"></task-list>
 
     <div class="button-position">
         <ion-button block >

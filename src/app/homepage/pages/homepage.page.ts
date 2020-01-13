@@ -12,9 +12,10 @@ export class HomePage {
     private todayTasks: Array<ITask>;
 
     constructor(private taskService: TaskplanService){
+        this.loadData();
     }
 
-    clickedButton(){
+    loadData(){
         this.taskService.getTodayTasks().then(x => {
             this.todayTasks = x;
         });

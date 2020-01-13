@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { TaskplanModule } from '../taskplan/taskplan.module';
+import { TaskComponent } from '../taskplan/components/task/task.component';
 
 @NgModule({
     declarations: [HomePage],
