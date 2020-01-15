@@ -9,4 +9,7 @@ export class TaskComponent {
 
     @Input() taskName: string;
 
+    test(arg: string){
+        console.log("To pochodzi z ", arg);
+    }
 }

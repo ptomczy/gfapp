@@ -7,13 +7,15 @@
 
     <ion-item>
       <ion-label>Nazwa: {{taskName}}</ion-label>
-      <ion-reorder></ion-reorder>
+      <ion-icon name="fastforward" (click)="test('fastforward')"></ion-icon>
+      <ion-icon name="eye" (click)="test('eye')"></ion-icon>
+      <ng-content></ng-content>
     </ion-item>
     
-
     <ion-item-options side="end">
       <ion-item-option color="tertiary" expandable>
         Consider done
       </ion-item-option>
     </ion-item-options>
+    
   </ion-item-sliding>
