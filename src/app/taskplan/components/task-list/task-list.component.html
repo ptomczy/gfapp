@@ -12,9 +12,9 @@
 <ion-list>
     <ion-reorder-group (ionItemReorder)="onRenderItems($event)" disabled="false">
 
-        <task-comp *ngFor="let tsk of tasks" [taskName]="tsk.name">
+        <!-- <task-comp *ngFor="let tsk of tasks" [taskName]="tsk.name">
         <ion-reorder slot="end"></ion-reorder>
-        </task-comp>
+        </task-comp> -->
 
         <!-- <ion-reorder *ngFor="let tsk of tasks">
             <task-comp [taskName]="tsk.name"></task-comp>
@@ -28,7 +28,7 @@
             <ion-reorder></ion-reorder>
         </ion-item> -->
 
-        <!-- <ion-item-sliding>
+        <ion-item-sliding *ngFor="let tsk of tasks">
             <ion-item-options side="start">
               <ion-item-option color="danger" expandable>
                 Delete
@@ -36,7 +36,7 @@
             </ion-item-options>
         
             <ion-item>
-              <ion-label>Expandable Options 1</ion-label>
+              <ion-label>{{tsk.name}}</ion-label>
               <ion-icon name="fastforward" (click)="test('fastforward')"></ion-icon>
               <ion-icon name="eye" (click)="test('eye')"></ion-icon>
               <ion-reorder slot="end"></ion-reorder>
@@ -48,11 +48,9 @@
               </ion-item-option>
             </ion-item-options>
 
-            
-
           </ion-item-sliding>
 
-          <ion-item-sliding>
+          <!-- <ion-item-sliding>
             <ion-item-options side="start">
               <ion-item-option color="danger" expandable>
                 Delete
@@ -68,11 +66,11 @@
               <ion-item-option color="tertiary" expandable>
                 Archive
               </ion-item-option>
-            </ion-item-options>
+            </ion-item-options> -->
 
             
 
-          </ion-item-sliding> -->
+          <!-- </ion-item-sliding> -->
 
     </ion-reorder-group>
 </ion-list>
