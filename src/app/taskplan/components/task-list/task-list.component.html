@@ -13,20 +13,66 @@
     <ion-reorder-group (ionItemReorder)="onRenderItems($event)" disabled="false">
 
         <task-comp *ngFor="let tsk of tasks" [taskName]="tsk.name">
-            <ion-reorder></ion-reorder>
+        <ion-reorder slot="end"></ion-reorder>
         </task-comp>
 
         <!-- <ion-reorder *ngFor="let tsk of tasks">
             <task-comp [taskName]="tsk.name"></task-comp>
         </ion-reorder> -->
-
-        <!-- <ion-item *ngFor="let tsk of tasks">
+<!-- 
+        <ion-item *ngFor="let tsk of tasks">
             {{tsk.name}}
             <ion-icon name="fastforward" (click)="test('fastforward')"></ion-icon>
             <ion-icon name="eye" (click)="test('eye')"></ion-icon>
 
             <ion-reorder></ion-reorder>
         </ion-item> -->
+
+        <!-- <ion-item-sliding>
+            <ion-item-options side="start">
+              <ion-item-option color="danger" expandable>
+                Delete
+              </ion-item-option>
+            </ion-item-options>
+        
+            <ion-item>
+              <ion-label>Expandable Options 1</ion-label>
+              <ion-icon name="fastforward" (click)="test('fastforward')"></ion-icon>
+              <ion-icon name="eye" (click)="test('eye')"></ion-icon>
+              <ion-reorder slot="end"></ion-reorder>
+            </ion-item>
+        
+            <ion-item-options side="end">
+              <ion-item-option color="tertiary" expandable>
+                Archive
+              </ion-item-option>
+            </ion-item-options>
+
+            
+
+          </ion-item-sliding>
+
+          <ion-item-sliding>
+            <ion-item-options side="start">
+              <ion-item-option color="danger" expandable>
+                Delete
+              </ion-item-option>
+            </ion-item-options>
+        
+            <ion-item>
+              <ion-label>Expandable Options 2</ion-label>
+              <ion-reorder slot="end"></ion-reorder>
+            </ion-item>
+        
+            <ion-item-options side="end">
+              <ion-item-option color="tertiary" expandable>
+                Archive
+              </ion-item-option>
+            </ion-item-options>
+
+            
+
+          </ion-item-sliding> -->
 
     </ion-reorder-group>
 </ion-list>
