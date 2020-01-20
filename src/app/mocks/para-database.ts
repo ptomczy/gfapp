@@ -18,11 +18,11 @@ export const mockGoals: IGoal[] = [
 ];
 
 export const mockTasks: ITask[] = [
-    {id: 't1', name: 'Task mockowy 1', date: 'dataTaska', status: 1, isObsolete: false},
-    {id: 't2', name: 'Task mockowy 2', date: 'dataTaska', status: 1, isObsolete: false},
-    {id: 't3', name: 'Task mockowy 3', date: 'dataTaska', status: 1, isObsolete: false},
-    {id: 't4', name: 'Task mockowy 4', date: 'dataTaska', status: 1, isObsolete: false},
-    {id: 't5', name: 'Task mockowy 5', date: 'dataTaska', status: 1, isObsolete: false},
-    {id: 't6', name: 'Task mockowy 6', date: 'dataTaska', status: 1, isObsolete: false},
-    {id: 't7', name: 'Task mockowy 7', date: 'dataTaska', status: 1, isObsolete: false},
+    {id: 't1', name: 'Task mockowy 1', date: 'dataTaska', status: 1, isObsolete: false, category: 1, priority: 1},
+    {id: 't2', name: 'Task mockowy 2', date: 'dataTaska', status: 1, isObsolete: false, category: 1, priority: 2},
+    {id: 't3', name: 'Task mockowy 3', date: 'dataTaska', status: 1, isObsolete: false, category: 1, priority: 3},
+    {id: 't4', name: 'Task mockowy 4', date: 'dataTaska', status: 1, isObsolete: false, category: 2, priority: 1},
+    {id: 't5', name: 'Task mockowy 5', date: 'dataTaska', status: 1, isObsolete: false, category: 3, priority: 1},
+    {id: 't6', name: 'Task mockowy 6', date: 'dataTaska', status: 1, isObsolete: false, category: 3, priority: 2},
+    {id: 't7', name: 'Task mockowy 7', date: 'dataTaska', status: 1, isObsolete: false, category: 3, priority: 3},
 ]
