@@ -22,4 +22,8 @@ export class ModalComponent {
         }
         this.modalController.dismiss(this.setOfParams);
     }
+
+    segmentChanged(ev: any) {
+        console.log("Selected segment: ", ev.detail.value);
+    }
 }
