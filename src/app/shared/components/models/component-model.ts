@@ -1,4 +1,4 @@
-export enum ModalMode {
+export enum ModalTaskMode {
     addNew,
     edit
 }

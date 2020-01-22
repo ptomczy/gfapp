@@ -2,13 +2,13 @@ import { NgModule } from "@angular/core";
 import { FooterFlexComponent } from './components/footer-flex/footerflex.component';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
-import { ModalComponent } from './components/modal/modal.component';
+import { ModalTaskComponent } from './components/modal-task/modal-task.component';
 
 @NgModule({
-    declarations: [FooterFlexComponent, ModalComponent],
+    declarations: [FooterFlexComponent, ModalTaskComponent],
     imports: [IonicModule, CommonModule],
-    exports: [FooterFlexComponent, ModalComponent],
-    entryComponents: [ModalComponent]
+    exports: [FooterFlexComponent, ModalTaskComponent],
+    entryComponents: [ModalTaskComponent]
     
 })
 export class SharedModule {

@@ -2,9 +2,8 @@ import { Component } from "@angular/core";
 import { ITask } from 'src/app/taskplan/models/taskplan.model';
 import { TaskplanService } from 'src/app/taskplan/sevices/taskplan.service';
 import { ModalController } from '@ionic/angular';
-import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
-import { ModalMode } from 'src/app/shared/components/models/component-model';
-import { ModalService } from 'src/app/shared/components/modal/services/modal.service';
+import { ModalTaskMode } from 'src/app/shared/components/models/component-model';
+import { ModalTaskService } from 'src/app/shared/components/modal-task/services/modal-task.service';
 
 @Component({
     selector: 'homePage',
@@ -16,7 +15,9 @@ export class HomePage {
     private todayTasks: Array<ITask>;
     
 
-    constructor(private taskService: TaskplanService, private modalCtr: ModalController, private modalService: ModalService){
+    constructor(private taskService: TaskplanService, 
+        private modalCtr: ModalController, 
+        private modalTaskService: ModalTaskService){
         this.loadData();
     }
 
@@ -27,6 +28,6 @@ export class HomePage {
     }
 
     modalRecall(){
-        this.modalService.showMe(ModalMode.addNew);
+        this.modalTaskService.showMe(ModalTaskMode.addNew, null);
     }
 }

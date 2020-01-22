@@ -11,7 +11,7 @@
         <h6>My super modal</h6>
         <ion-item>
             <ion-label position="floating">Task name</ion-label>
-            <ion-input></ion-input>
+            <ion-input>{{task ? task.name : ''}}</ion-input>
         </ion-item>
     
         <p>Przychodzi: {{par1}}</p>
@@ -38,8 +38,8 @@
             </ion-segment>
     
         <p>Wychodzi: {{par2}}</p>
-        <ion-button color="success" (click)="closeModal()">Close</ion-button>
-        <ion-button color="danger" (click)="closeModal()">Close</ion-button>
+        <ion-button color="success" (click)="closeModalTask()">Close</ion-button>
+        <ion-button color="danger" (click)="closeModalTask()">Close</ion-button>
     </ion-content>
 
 

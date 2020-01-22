@@ -6,12 +6,12 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { TaskplanModule } from '../taskplan/taskplan.module';
 import { TaskComponent } from '../taskplan/components/task/task.component';
-import { ModalComponent } from '../shared/components/modal/modal.component';
+import { ModalTaskComponent } from '../shared/components/modal-task/modal-task.component';
 
 @NgModule({
     declarations: [HomePage],
     imports: [HomePageRoutingModule, IonicModule, CommonModule, SharedModule, TaskplanModule],
-    entryComponents: [HomePage, ModalComponent]
+    entryComponents: [HomePage, ModalTaskComponent]
 })
 export class HomePageModule {
 
