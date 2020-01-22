@@ -4,6 +4,7 @@ import { TaskplanService } from 'src/app/taskplan/sevices/taskplan.service';
 import { ModalController } from '@ionic/angular';
 import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
 import { ModalMode } from 'src/app/shared/components/models/component-model';
+import { ModalService } from 'src/app/shared/components/modal/services/modal.service';
 
 @Component({
     selector: 'homePage',
@@ -15,7 +16,7 @@ export class HomePage {
     private todayTasks: Array<ITask>;
     
 
-    constructor(private taskService: TaskplanService, private modalCtr: ModalController){
+    constructor(private taskService: TaskplanService, private modalCtr: ModalController, private modalService: ModalService){
         this.loadData();
     }
 
@@ -25,30 +26,7 @@ export class HomePage {
         });
     }
 
-    modalRecall(add: string){
-        let arg: number;
-        switch(add){
-            case 'add': {
-                arg = ModalMode.addNew;
-                break;
-            }
-            case 'edit': {
-                arg = ModalMode.edit;
-                break;
-            }
-        }
-        this.presentModal(arg);
+    modalRecall(){
+        this.modalService.showMe(ModalMode.addNew);
     }
-
-    async presentModal(mde: number) {
-        const modal = await this.modalCtr.create({
-          component: ModalComponent,
-          componentProps: {
-              par1: "To przychodzi z wywołania",
-              modalMode: mde
-          }
-        });
-        modal.onDidDismiss().then(x => console.log("Przyszło: ", x.data));
-        return await modal.present();
-      }
 }

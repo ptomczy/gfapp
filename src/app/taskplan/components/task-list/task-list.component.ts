@@ -1,5 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { ITask } from '../../models/taskplan.model';
+import { ModalService } from 'src/app/shared/components/modal/services/modal.service';
+import { ModalMode } from 'src/app/shared/components/models/component-model';
 
 @Component({
     selector: 'task-list',
@@ -7,6 +9,10 @@ import { ITask } from '../../models/taskplan.model';
     styleUrls: ['task-list.component.scss']
 })
 export class TaskListComponent {
+
+    constructor(private ModalService: ModalService){
+
+    }
 
     @Input() scopeInfo: string = 'Plan for today';
     @Input() tasks: Array<ITask> = [];
@@ -23,6 +29,8 @@ export class TaskListComponent {
 
     edit(tsk: ITask){
         console.log("Wybrane do edycji: ", tsk);
+        this.ModalService.showMe(ModalMode.edit);
+
     }
 
     delete(tsk: ITask){

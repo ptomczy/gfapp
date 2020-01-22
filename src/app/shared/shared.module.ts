@@ -7,7 +7,9 @@ import { ModalComponent } from './components/modal/modal.component';
 @NgModule({
     declarations: [FooterFlexComponent, ModalComponent],
     imports: [IonicModule, CommonModule],
-    exports: [FooterFlexComponent, ModalComponent]
+    exports: [FooterFlexComponent, ModalComponent],
+    entryComponents: [ModalComponent]
+    
 })
 export class SharedModule {
 

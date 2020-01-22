@@ -10,7 +10,7 @@
 
     <task-list [tasks]="todayTasks"></task-list>
 
-    <div class="button-position" (click)="modalRecall('edit')">
+    <div class="button-position">
         <ion-button block >
             <ion-icon name="fastforward"></ion-icon>
             Plan for tommorow
@@ -20,7 +20,7 @@
 
     <ion-fab center middle>
       <ion-fab-button>
-        <ion-icon name="add" (click)="modalRecall('add')"></ion-icon>
+        <ion-icon name="add" (click)="modalRecall()"></ion-icon>
       </ion-fab-button>
     </ion-fab>
   </ion-content>
