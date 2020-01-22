@@ -8,7 +8,7 @@ import { ITask } from '../../models/taskplan.model';
 })
 export class TaskListComponent {
 
-    @Input() scopeInfo: string = 'Today';
+    @Input() scopeInfo: string = 'Plan for today';
     @Input() tasks: Array<ITask> = [];
 
     onRenderItems(event) {
@@ -21,4 +21,11 @@ export class TaskListComponent {
         console.log("To pochodzi z ", arg);
     }
 
+    edit(tsk: ITask){
+        console.log("Wybrane do edycji: ", tsk);
+    }
+
+    delete(tsk: ITask){
+        console.log("Wybrane do skasowania: ", tsk);
+    }
 }

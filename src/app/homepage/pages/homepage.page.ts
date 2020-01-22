@@ -3,6 +3,7 @@ import { ITask } from 'src/app/taskplan/models/taskplan.model';
 import { TaskplanService } from 'src/app/taskplan/sevices/taskplan.service';
 import { ModalController } from '@ionic/angular';
 import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
+import { ModalMode } from 'src/app/shared/components/models/component-model';
 
 @Component({
     selector: 'homePage',
@@ -25,14 +26,26 @@ export class HomePage {
     }
 
     modalRecall(add: string){
-        this.presentModal();
+        let arg: number;
+        switch(add){
+            case 'add': {
+                arg = ModalMode.addNew;
+                break;
+            }
+            case 'edit': {
+                arg = ModalMode.edit;
+                break;
+            }
+        }
+        this.presentModal(arg);
     }
 
-    async presentModal() {
+    async presentModal(mde: number) {
         const modal = await this.modalCtr.create({
           component: ModalComponent,
           componentProps: {
-              par1: "To przychodzi z wywołania"
+              par1: "To przychodzi z wywołania",
+              modalMode: mde
           }
         });
         modal.onDidDismiss().then(x => console.log("Przyszło: ", x.data));

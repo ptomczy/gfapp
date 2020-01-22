@@ -17,8 +17,8 @@
         
             <ion-item>
               <ion-label>{{tsk.name}}</ion-label>
-              <ion-icon name="fastforward" (click)="test('fastforward')"></ion-icon>
-              <ion-icon name="eye" (click)="test('eye')"></ion-icon>
+              <ion-icon name="create" (click)="edit(tsk)"></ion-icon>
+              <ion-icon name="trash" (click)="delete(tsk)"></ion-icon>
               <ion-reorder slot="end"></ion-reorder>
             </ion-item>
         

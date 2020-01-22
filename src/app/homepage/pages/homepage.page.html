@@ -10,10 +10,10 @@
 
     <task-list [tasks]="todayTasks"></task-list>
 
-    <div class="button-position">
+    <div class="button-position" (click)="modalRecall('edit')">
         <ion-button block >
             <ion-icon name="fastforward"></ion-icon>
-            Schedule for tommorow
+            Plan for tommorow
           </ion-button>
     </div>
 
