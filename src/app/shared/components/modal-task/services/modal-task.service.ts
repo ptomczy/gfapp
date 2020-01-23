@@ -26,7 +26,10 @@ export class ModalTaskService {
               task: task
           }
         });
-        modal.onDidDismiss().then(x => console.log("Przyszło: ", x.data));
+        modal.onDidDismiss().then(x => {
+            console.log("Przyszło: ", x.data);
+        })
+            
         return await modal.present();
       }
 }

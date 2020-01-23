@@ -11,7 +11,7 @@
         <h6>My super modal</h6>
         <ion-item>
             <ion-label position="floating">Task name</ion-label>
-            <ion-input>{{task ? task.name : ''}}</ion-input>
+            <ion-input [(ngModel)]="task.name"></ion-input>
         </ion-item>
     
         <p>Przychodzi: {{par1}}</p>

@@ -1,7 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { ModalController } from '@ionic/angular';
 
-import { ITask } from 'src/app/taskplan/models/taskplan.model';
+import { ITask, TaskStatus, TaskCategory } from 'src/app/taskplan/models/taskplan.model';
 import { ModalTaskMode } from '../models/component-model';
 
 @Component({
@@ -12,10 +12,10 @@ import { ModalTaskMode } from '../models/component-model';
 export class ModalTaskComponent {
 
     @Input() modalTaskMode: ModalTaskMode;
-    @Input() par1: string;
     @Input() task: ITask | null;
-    private par2: string = "To jest parametr wychodzący";
-    private setOfParams: {p1: string, p2: string};
+    private setOfParams = {
+        tsk: this.task
+    }
 
     constructor(private modalController: ModalController){
     }
@@ -35,8 +35,7 @@ export class ModalTaskComponent {
 
     closeModalTask(){
         this.setOfParams = {
-            p1: this.par1,
-            p2: this.par2
+            tsk: this.task
         }
         this.modalController.dismiss(this.setOfParams);
     }

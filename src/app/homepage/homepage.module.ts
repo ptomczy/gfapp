@@ -5,7 +5,6 @@ import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { TaskplanModule } from '../taskplan/taskplan.module';
-import { TaskComponent } from '../taskplan/components/task/task.component';
 import { ModalTaskComponent } from '../shared/components/modal-task/modal-task.component';
 
 @NgModule({
