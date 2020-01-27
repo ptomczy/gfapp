@@ -18,3 +18,13 @@ export interface ITask {
     category: TaskCategory;
     priority: number;
 }
+
+export enum taskScopeInfo {
+    today = "Plan for today",
+    tommorow = "Plan for tommorow"
+}
+
+export enum TaskListViewMode {
+    todayTasks,
+    tommorowTasks
+}

@@ -13,3 +13,13 @@ ion-button ion-icon {
     bottom: 10%;
     left: 5%;
 }
+
+.button-today {
+    --background: green;
+    --background-hover: green;
+}
+
+.button-tommorow {
+    --background: red;
+    --background-hover: red;
+}

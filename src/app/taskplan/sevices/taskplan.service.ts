@@ -12,12 +12,24 @@ export class TaskplanService {
     getTodayTasks() {
         let tasksAvailable: Promise<ITask[]> = new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(mockTasks);
+            resolve(mockTasks.filter(x => x.date == "dataTaskaToday"
+            ));
             reject("Dupa, brak danych");
-        }, 1500);
+        }, 500);
         });
         return tasksAvailable;
         
+    }
+
+    getTommorowTasks() {
+        let tasksAvailable: Promise<ITask[]> = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(mockTasks.filter(x => x.date == "dataTaskaTommorow"
+                ));
+                reject("Dupa, brak danych");
+            }, 500);
+            });
+            return tasksAvailable;
     }
 
 }

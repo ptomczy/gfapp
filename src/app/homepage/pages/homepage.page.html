@@ -8,13 +8,20 @@
   
   <ion-content>
 
-    <task-list [tasks]="todayTasks"></task-list>
+    <task-list [tasks]="todayTasks" [scopeModeInfo]="taskListScopeInfo"></task-list>
 
     <div class="button-position">
-        <ion-button block >
-            <ion-icon name="fastforward"></ion-icon>
-            Plan for tommorow
-          </ion-button>
+        <ion-button [ngClass]="taskListScopeInfo == 'Plan for today' ? 'button-tommorow' : 'button-today'" block (click)="changeTaskList()">
+          <div *ngIf="taskListScopeInfo == 'Plan for today'">
+              <ion-icon name="fastforward"></ion-icon>
+              Plan for tommorow
+          </div>
+          <div *ngIf="taskListScopeInfo != 'Plan for today'">
+              <ion-icon name="rewind"></ion-icon>
+              Plan for today
+          </div>
+
+        </ion-button>
     </div>
 
 
