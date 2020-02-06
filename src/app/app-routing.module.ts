@@ -1,14 +1,19 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './shared/services/auth-guard.service';
 
 const routes: Routes = [
   {
     path: '',
-    //loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () => import('./takeOff/takeOff.module').then(m => m.TakeOffModule)
+  },
+  {
+    path: 'home',
     loadChildren: () => import('./homepage/homepage.module').then(m => m.HomePageModule)
   },
   {
     path: 'workplan',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./workplan/workplan.module').then(m => m.WorkplanModule)
   },
   {
