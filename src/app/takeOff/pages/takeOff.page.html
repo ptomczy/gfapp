@@ -7,5 +7,6 @@
 </ion-header>
 <ion-content>
     <p>To jest takeOf page</p>
+    <p *ngIf="_user">Zalogowany juzer to {{_user.displayName}}</p>
     <login-page></login-page>
 </ion-content>

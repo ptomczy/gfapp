@@ -5,8 +5,10 @@ import { ModalController } from '@ionic/angular';
 import { ModalTaskMode } from 'src/app/shared/components/models/component-model';
 import { ModalTaskService } from 'src/app/shared/components/modal-task/services/modal-task.service';
 import { TaskListViewMode } from '../../taskplan/models/taskplan.model';
+import { Router } from '@angular/router';
 
 const emptyTask: ITask = {
+        userId: '',
         id: '',
         name: '',
         date: '',
@@ -28,7 +30,7 @@ export class HomePage {
     private taskListScopeInfo: taskScopeInfo = taskScopeInfo.today;
 
     constructor(private taskService: TaskplanService,  
-        private modalTaskService: ModalTaskService){
+        private modalTaskService: ModalTaskService, private router: Router){
             this.displayTaskList(TaskListViewMode.todayTasks);
     }
 
@@ -67,5 +69,9 @@ export class HomePage {
                 console.log("Dupa");
         }
 
+    }
+
+    exitButtonClicked(){
+        this.router.navigate(['/']);
     }
 }

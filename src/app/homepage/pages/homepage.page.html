@@ -1,8 +1,14 @@
 <ion-header>
     <ion-toolbar>
-      <ion-title>
+      <ion-title slot="start">
         HomePage
       </ion-title>
+
+      <button style="margin-right: 15px" ion-button icon-only slot="end" (click)="exitButtonClicked()">
+        <ion-icon style="font-size: 30px" name="log-out"></ion-icon>
+      </button>
+
+      
     </ion-toolbar>
   </ion-header>
   
@@ -23,7 +29,6 @@
 
         </ion-button>
     </div>
-
 
     <ion-fab center middle>
       <ion-fab-button>

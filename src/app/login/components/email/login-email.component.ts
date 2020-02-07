@@ -10,7 +10,7 @@ export class LoginEmailComponent {
 
     private _email: string;
     private _password: string;
-    private _info: string;
+    _info: string;
 
     constructor(private _firebaseAuthService: AuthService){
     }
