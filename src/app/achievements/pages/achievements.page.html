@@ -7,4 +7,41 @@
   </ion-header>
   
   <ion-content>
+
+    <ion-list></ion-list>
+
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Loading more data...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+
+
+
+    <ion-fab class="main" horizontal="end" vertical="bottom" slot="fixed">
+      <ion-fab-button color="dark">
+        <ion-icon name="arrow-dropup"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="top">
+        <ion-button>Dupa</ion-button>
+        <ion-button>Fiutek</ion-button>
+        <ion-fab-button>
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+
+    <!-- <section>
+      <ion-chip class="chip-not-chosen">
+        <ion-label>All available</ion-label>
+      </ion-chip>
+      <div *ngFor="let ac of achievementCategories" style="display: flex">
+        <ion-chip class="chip-not-chosen">
+          <ion-label>{{ac}}</ion-label>
+        </ion-chip>
+      </div>
+    </section> -->
+
   </ion-content>
