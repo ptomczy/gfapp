@@ -18,3 +18,18 @@ ion-chip ion-label{
     font-size: 1.2rem;
     color: black;
 }
+
+.achievement-category-active {
+    width: 200px;
+    --background: blue;
+    --background-hover: blue;
+}
+
+.achievement-category-inactive {
+    width: 200px;
+    --background-color: red;;
+}
+
+.achievement-add {
+    
+}

@@ -6,16 +6,15 @@
     </ion-toolbar>
   </ion-header>
   
-  <ion-content style="bottom: 8%">
+  <ion-content style="bottom: 8%; top: 0%">
 
-    <ion-list>
+    <!-- <ion-list>
       <ion-item *ngFor="let item of dataList">
         <ion-label>{{item.name}}</ion-label>
       </ion-item>
-      <!-- <ion-item *ngFor="let item of dataList">
-        <achievement></achievement>
-      </ion-item> -->
-    </ion-list>
+    </ion-list> -->
+    <achievement-list [(achievements)]="dataList"></achievement-list>
+
 
     <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
       <ion-infinite-scroll-content
@@ -24,31 +23,33 @@
       </ion-infinite-scroll-content>
     </ion-infinite-scroll>
 
-
-
-
     <ion-fab class="main" horizontal="end" vertical="bottom" slot="fixed">
       <ion-fab-button color="dark">
         <ion-icon name="arrow-dropup"></ion-icon>
       </ion-fab-button>
       <ion-fab-list side="top">
-        <ion-button>Dupa</ion-button>
-        <ion-button>Fiutek</ion-button>
-        <ion-fab-button>
+        <ion-button 
+        [ngClass]="{'achievement-category-active' : allAchievementsSelected, 'achievement-category-inactive' : !allAchievementsSelected}"
+        (click)="visibilityChange('all')"
+          >
+          All visible
+        </ion-button>
+        <ion-button 
+        [ngClass]="{'achievement-category-active' : personalAchievementsSelected, 'achievement-category-inactive' : !personalAchievementsSelected}"
+        (click)="visibilityChange('personal')"
+          >
+          Only personal
+        </ion-button>
+        <ion-button 
+        [ngClass]="{'achievement-category-active' : professionalAchievementsSelected, 'achievement-category-inactive' : !professionalAchievementsSelected}"
+        (click)="visibilityChange('professional')"
+          >
+          Only professional
+        </ion-button>
+        <ion-fab-button size="undefined" color="primary" class="achievement-add" (click)="addNewAchievement()">
           <ion-icon name="add"></ion-icon>
         </ion-fab-button>
       </ion-fab-list>
     </ion-fab>
-
-    <!-- <section>
-      <ion-chip class="chip-not-chosen">
-        <ion-label>All available</ion-label>
-      </ion-chip>
-      <div *ngFor="let ac of achievementCategories" style="display: flex">
-        <ion-chip class="chip-not-chosen">
-          <ion-label>{{ac}}</ion-label>
-        </ion-chip>
-      </div>
-    </section> -->
 
   </ion-content>
