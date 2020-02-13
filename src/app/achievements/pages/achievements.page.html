@@ -8,13 +8,7 @@
   
   <ion-content style="bottom: 8%; top: 0%">
 
-    <!-- <ion-list>
-      <ion-item *ngFor="let item of dataList">
-        <ion-label>{{item.name}}</ion-label>
-      </ion-item>
-    </ion-list> -->
     <achievement-list [(achievements)]="dataList"></achievement-list>
-
 
     <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
       <ion-infinite-scroll-content

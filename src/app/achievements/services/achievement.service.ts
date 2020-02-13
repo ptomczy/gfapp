@@ -12,4 +12,9 @@ export class AchievementService {
         })
     }
 
+    deleteAchievement(obj: IAchievement){
+        let idxElToDel: number = mockAchievements.findIndex(el => el.name == obj.name);
+        mockAchievements.splice(idxElToDel,1);
+    }
+
 }

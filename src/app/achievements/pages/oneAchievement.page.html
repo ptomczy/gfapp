@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+        Achievement details
+        </ion-title>
+    </ion-toolbar>
+    
+    </ion-header>
+    
+    <ion-content>
+
+    <ion-segment (ionChange)="segmentChanged($event)" [value]="achievement.tag">
+        <ion-segment-button value="Personal">
+            <ion-label>Personal</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="Professional">
+            <ion-label>Professional</ion-label>
+        </ion-segment-button>
+        </ion-segment>
+
+        <ion-item>
+            <ion-label position="floating">Your achievement</ion-label>
+            <ion-input [(ngModel)]="achievement.name"></ion-input>
+        </ion-item>
+
+    <ion-button color="success" (click)="save()">Save</ion-button>
+    <ion-button color="danger" (click)="cancel()">Cancel</ion-button>
+    
+</ion-content>

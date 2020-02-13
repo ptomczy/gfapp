@@ -28,7 +28,7 @@ export const mockTasks: ITask[] = [
     {userId: 'df', id: 't7', name: 'Task mockowy 7', date: 'dataTaskaTommorow', status: 1, isObsolete: false, category: 3, priority: 3},
 ];
 
-export const mockAchievements: IAchievement[] = [
+export let mockAchievements: IAchievement[] = [
     {tag: AchievementCategory.personal, name: "Osiągnięcie A"},
     {tag: AchievementCategory.personal, name: "Osiągnięcie B"},
     {tag: AchievementCategory.professional, name: "Osiągnięcie C"},

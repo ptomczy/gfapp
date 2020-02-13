@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, OnDestroy, Directive, ChangeDetectionStra
 import { AchievementCategory, IAchievement } from '../models/achievement.model';
 import { IonInfiniteScroll } from '@ionic/angular';
 import { AchievementService } from '../services/achievement.service';
+import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'achievements-page',
@@ -14,21 +15,25 @@ export class AchievementsPage implements OnInit, OnDestroy {
     private achievementCategories: Array<string>;
     //@ViewChild(IonInfiniteScroll, {static: false}) infiniteScroll: IonInfiniteScroll;
     dataList: Array<IAchievement>;
-    private incomingDataList: Array<IAchievement> = [];
     private allAchievementsSelected: boolean;
     private personalAchievementsSelected: boolean;
     private professionalAchievementsSelected: boolean;
+    private selectedAchievement: IAchievement;
+    achievementListCurrentView: string;
 
-    constructor(private achievementService: AchievementService, private cd: ChangeDetectorRef){
+    constructor(private achievementService: AchievementService, private cd: ChangeDetectorRef, private router: Router, private route: ActivatedRoute){
 
       this.allAchievementsSelected = true;
       this.personalAchievementsSelected = false;
       this.professionalAchievementsSelected = false;
 
       this.dataList = [];
+      this.selectedAchievement = {
+        tag: AchievementCategory.personal,
+        name: ''
+      }
       this.achievementService.getAchievements().subscribe(res => {
         this.dataList = res;
-        this.incomingDataList = res;
       });
     }
 
@@ -38,10 +43,6 @@ export class AchievementsPage implements OnInit, OnDestroy {
 
     loadData(event) {
         setTimeout(() => {
-          // console.log('Done');
-          // for (let i = 0; i < 25; i++) { 
-          //   this.dataList.push("Item number "+this.dataList.length);
-          // }
           event.target.complete();
 
           if (this.dataList.length == 1000) {
@@ -51,30 +52,35 @@ export class AchievementsPage implements OnInit, OnDestroy {
       }
 
     visibilityChange(obj: string){
+      this.achievementListCurrentView = obj;
+
       switch(obj){
         case 'all':{
           this.allAchievementButtonsNotSelected();
           this.allAchievementsSelected = true;
-          this.dataList = this.incomingDataList;          
+          this.achievementService.getAchievements().subscribe(res => {
+            this.dataList = res;
+          })         
           break;
         };
         case 'personal':{
           this.allAchievementButtonsNotSelected();
           this.personalAchievementsSelected = true;
-          this.dataList = this.incomingDataList;
-          let personalAchievements = this.dataList.filter(el => el.tag == AchievementCategory.personal);
-          this.dataList = personalAchievements;
+          this.achievementService.getAchievements().subscribe(res => {
+            this.dataList = res.filter(el => el.tag == AchievementCategory.personal);
+          })
           break;
         };
         case 'professional':{
           this.allAchievementButtonsNotSelected();
           this.professionalAchievementsSelected = true;
-          this.dataList = this.incomingDataList;
-          let professionalAchievements = this.dataList.filter(el => el.tag == AchievementCategory.professional);
-          this.dataList = professionalAchievements;
+          this.achievementService.getAchievements().subscribe(res => {
+            this.dataList = res.filter(el => el.tag == AchievementCategory.professional);
+          })
           break;
         }
       }
+      console.log("Aktualny widok achievements.page: ", this.achievementListCurrentView);
     }
 
     allAchievementButtonsNotSelected() {
@@ -84,7 +90,7 @@ export class AchievementsPage implements OnInit, OnDestroy {
     }
 
     addNewAchievement(){
-      console.log("Dodany nowy");
+      this.router.navigate(['achievements/one-achievement', {tag: AchievementCategory.personal, name: null}]);      
     }
 
     ngOnDestroy(){

@@ -3,13 +3,14 @@ import { AchievementsPage } from './pages/achievements.page';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { AchievementsRoutingModule } from './achievements-routing.module';
-import { AchievementComponent } from './components/achievement/achievement.component';
+import { OneAchievementPage } from './pages/oneAchievement.page';
 import { AchievementService } from './services/achievement.service';
 import { AchievementListComponent } from './components/achievement-list/achievement-list.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-    declarations: [AchievementsPage, AchievementComponent, AchievementListComponent],
-    imports: [IonicModule, CommonModule, AchievementsRoutingModule],
+    declarations: [AchievementsPage, OneAchievementPage, AchievementListComponent],
+    imports: [IonicModule, CommonModule, AchievementsRoutingModule, FormsModule],
     providers: [AchievementService],
     exports: [AchievementListComponent]
 })
