@@ -14,7 +14,7 @@ export class AchievementsPage implements OnInit, OnDestroy {
 
     private achievementCategories: Array<string>;
     //@ViewChild(IonInfiniteScroll, {static: false}) infiniteScroll: IonInfiniteScroll;
-    dataList: Array<IAchievement>;
+    private dataList: Array<IAchievement>;
     private allAchievementsSelected: boolean;
     private personalAchievementsSelected: boolean;
     private professionalAchievementsSelected: boolean;
@@ -89,7 +89,9 @@ export class AchievementsPage implements OnInit, OnDestroy {
           break;
         }
       }
+      this.cd.detectChanges();
       console.log("Aktualny widok achievements.page: ", this.achievementListCurrentView);
+      console.log("Dane: ", this.dataList);
     }
 
     allAchievementButtonsNotSelected() {
