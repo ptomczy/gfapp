@@ -41,6 +41,15 @@ export class AchievementsPage implements OnInit, OnDestroy {
         this.achievementCategories = Object.keys(AchievementCategory);
     }
 
+    ionViewWillEnter(){
+      console.log("Will enter");
+      
+      if(this.achievementListCurrentView) {
+        console.log("Will enter, parametr: ", this.achievementListCurrentView);
+        this.visibilityChange(this.achievementListCurrentView);
+      }
+    }
+
     loadData(event) {
         setTimeout(() => {
           event.target.complete();

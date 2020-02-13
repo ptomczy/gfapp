@@ -13,7 +13,7 @@ export class AchievementListComponent {
 
     @Input() achievements: Array<IAchievement> = [];
 
-    constructor(private router: Router, private achievementService: AchievementService, private achievementsPage: AchievementsPage){
+    constructor(private router: Router, private achievementService: AchievementService){ //, private achievementsPage: AchievementsPage){
 
     }
 
@@ -33,6 +33,6 @@ export class AchievementListComponent {
 
     delete(el: IAchievement){
         this.achievementService.deleteAchievement(el);
-        this.achievementsPage.visibilityChange(this.achievementsPage.achievementListCurrentView);
+        //this.achievementsPage.visibilityChange(this.achievementsPage.achievementListCurrentView);
     }
 }

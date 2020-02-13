@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { IAchievement } from '../models/achievement.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PageDisplayMode } from 'src/app/shared/models/shared.model';
 import { NavController } from '@ionic/angular';
 import * as db from '../../mocks/para-database';
@@ -16,7 +16,7 @@ export class OneAchievementPage {
     private achievement: IAchievement;
     private displayMode: PageDisplayMode;
 
-    constructor(private route: ActivatedRoute, private navCtrl: NavController){
+    constructor(private route: ActivatedRoute, private navCtrl: NavController, private router: Router){
         this.achievement = this.route.snapshot.params as IAchievement;
 
         if (this.achievement.name || this.achievement.name == null) {
@@ -38,8 +38,8 @@ export class OneAchievementPage {
         db.mockAchievements.push(this.achievement);
         // console.log("Kurent wiu: ", this.ap.achievementListCurrentView);
         // this.ap.visibilityChange(this.ap.achievementListCurrentView);
-        
-        this.navCtrl.back();
+        this.router.navigateByUrl('achievements');
+        //this.navCtrl.back();
     }
 
     cancel(){

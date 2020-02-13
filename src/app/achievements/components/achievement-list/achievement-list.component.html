@@ -3,6 +3,8 @@
         
             <ion-item *ngFor="let achievement of achievements">
               <ion-label>{{achievement.name}}</ion-label>
+              <ion-badge *ngIf="achievement.tag == 'Personal'" color="primary">PERS</ion-badge>
+              <ion-badge *ngIf="achievement.tag == 'Professional'" color="danger">PRO</ion-badge>
               <ion-icon name="create" (click)="edit(achievement)"></ion-icon>
               <ion-icon name="trash" (click)="delete(achievement)"></ion-icon>
               <ion-reorder slot="end"></ion-reorder>
