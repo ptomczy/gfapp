@@ -1,8 +1,7 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, ChangeDetectorRef } from "@angular/core";
 import { IAchievement } from '../../models/achievement.model';
 import { Router } from '@angular/router';
 import { AchievementService } from '../../services/achievement.service';
-import { AchievementsPage } from '../../pages/achievements.page';
 
 @Component({
     selector: 'achievement-list',
@@ -13,8 +12,7 @@ export class AchievementListComponent {
 
     @Input() achievements: Array<IAchievement> = [];
 
-    constructor(private router: Router, private achievementService: AchievementService){ //, private achievementsPage: AchievementsPage){
-
+    constructor(private router: Router, private achievementService: AchievementService){
     }
 
     onRenderItems(event) {
@@ -23,16 +21,28 @@ export class AchievementListComponent {
          this.achievements.splice(event.detail.to,0,draggedItem)
         event.detail.complete();
       };
-      test(arg: string){
-        console.log("To pochodzi z ", arg);
-    }
 
     edit(el: IAchievement) {
         this.router.navigate(['achievements/one-achievement', el]);
     }
 
     delete(el: IAchievement){
+        console.log("Usuwanie elementu ", el.name);
+        let idx = this.achievements.findIndex(elem => elem.name == el.name && elem.tag == el.tag);
+        this.achievements.splice(idx,1);
         this.achievementService.deleteAchievement(el);
-        //this.achievementsPage.visibilityChange(this.achievementsPage.achievementListCurrentView);
+    }
+
+    sort(dir: string){
+        switch(dir){
+            case 'asc':{
+                this.achievements.sort((a,b) => a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1);
+                break;
+            }
+            case 'desc':{
+                this.achievements.sort((a,b) => b.name.toLowerCase() > a.name.toLowerCase() ? 1 : -1);
+                break;
+            }
+        }
     }
 }

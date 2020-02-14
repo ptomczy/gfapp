@@ -1,13 +1,12 @@
-import { Component, OnInit, ViewChild, OnDestroy, Directive, ChangeDetectionStrategy, ChangeDetectorRef } from "@angular/core";
+import { Component, OnInit, ViewChild, OnDestroy, ChangeDetectionStrategy, ChangeDetectorRef } from "@angular/core";
 import { AchievementCategory, IAchievement } from '../models/achievement.model';
 import { IonInfiniteScroll } from '@ionic/angular';
 import { AchievementService } from '../services/achievement.service';
-import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'achievements-page',
     templateUrl: 'achievements.page.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrls: ['achievements.page.scss']
 })
 export class AchievementsPage implements OnInit, OnDestroy {
@@ -42,10 +41,7 @@ export class AchievementsPage implements OnInit, OnDestroy {
     }
 
     ionViewWillEnter(){
-      console.log("Will enter");
-      
       if(this.achievementListCurrentView) {
-        console.log("Will enter, parametr: ", this.achievementListCurrentView);
         this.visibilityChange(this.achievementListCurrentView);
       }
     }
@@ -90,8 +86,6 @@ export class AchievementsPage implements OnInit, OnDestroy {
         }
       }
       this.cd.detectChanges();
-      console.log("Aktualny widok achievements.page: ", this.achievementListCurrentView);
-      console.log("Dane: ", this.dataList);
     }
 
     allAchievementButtonsNotSelected() {

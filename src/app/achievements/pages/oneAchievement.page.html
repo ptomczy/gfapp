@@ -20,7 +20,8 @@
 
         <ion-item>
             <ion-label position="floating">Your achievement</ion-label>
-            <ion-input [(ngModel)]="achievement.name"></ion-input>
+            <!-- <ion-input [(ngModel)]="achievement.name" name="name"></ion-input> -->
+            <ion-input [(ngModel)]="achievementName"></ion-input>
         </ion-item>
 
     <ion-button color="success" (click)="save()">Save</ion-button>
