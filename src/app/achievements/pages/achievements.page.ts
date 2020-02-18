@@ -28,6 +28,7 @@ export class AchievementsPage implements OnInit, OnDestroy {
 
       this.dataList = [];
       this.selectedAchievement = {
+        order: 1,
         tag: AchievementCategory.personal,
         name: ''
       }

@@ -4,6 +4,7 @@ export enum AchievementCategory {
 }
 
 export interface IAchievement {
+    order: number;
     tag: AchievementCategory,
     name: string
 }

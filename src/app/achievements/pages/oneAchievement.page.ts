@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PageDisplayMode } from 'src/app/shared/models/shared.model';
 import { NavController } from '@ionic/angular';
 import * as db from '../../mocks/para-database';
+import { AchievementService } from '../services/achievement.service';
 
 @Component({
     selector: 'one-achievement',
@@ -16,22 +17,26 @@ export class OneAchievementPage {
     private tmpAchievement: IAchievement;
     private displayMode: PageDisplayMode;
     private achievementName: string;
+    private achievementOrder: number;
 
-    constructor(private route: ActivatedRoute, private navCtrl: NavController, private router: Router){
+    constructor(private route: ActivatedRoute, private navCtrl: NavController, private router: Router, private as: AchievementService){
         this.achievement = this.route.snapshot.params as IAchievement;
 
         if (this.achievement.name == '' || this.achievement.name == 'null') {
             this.displayMode = PageDisplayMode.new;
             this.achievementName = '';
+            this.achievementOrder = 1;
         } else {
             this.displayMode = PageDisplayMode.edit;
             this.achievementName = this.achievement.name;
+            this.achievementOrder = parseInt((this.achievement.order).toString());
             this.tmpAchievement = this.achievement;
         }
     }
 
     ionViewWillEnter(){
         if (this.achievement.name == 'null') {this.achievement = {
+            order: this.achievement.order,
             tag: this.achievement.tag,
             name: ''
         }};
@@ -39,17 +44,32 @@ export class OneAchievementPage {
 
     save(){
         this.achievement = {
+            order: this.achievementOrder,
             tag: this.achievement.tag,
             name: this.achievementName
         };
         switch(this.displayMode){
             case PageDisplayMode.edit: {
-                let nominated: number = db.mockAchievements.findIndex(obj => obj.name == this.tmpAchievement.name && obj.tag == this.tmpAchievement.tag);
-                db.mockAchievements.splice(nominated, 1);
+                // let nominated: number = db.mockAchievements.findIndex(obj => obj.name == this.tmpAchievement.name && obj.tag == this.tmpAchievement.tag);
+                let nominated: number = db.mockAchievements.findIndex(obj => obj.order == this.achievement.order);
+                // db.mockAchievements.splice(nominated, 1);
+                db.mockAchievements[nominated] = {
+                    order: this.achievementOrder,
+                    tag: this.achievement.tag,
+                    name: this.achievementName
+                }
+                // console.log("Po zmianie: ", db.mockAchievements);
+                
+                break;
+            }
+            case PageDisplayMode.new: {
+                db.mockAchievements.unshift(this.achievement);
+                this.as.setNewOrder();
+                // console.log("Po dodaniu nowego: ", db.mockAchievements);
                 break;
             }
         }
-        db.mockAchievements.push(this.achievement);
+        
         this.router.navigateByUrl('achievements');
     }
 
@@ -58,7 +78,7 @@ export class OneAchievementPage {
     }
 
     segmentChanged(val: any){
-        console.log("Nadaje: ", val.detail.value);
+        // console.log("Nadaje: ", val.detail.value);
         this.achievement = {
             ...this.achievement, tag: val.detail.value
         }

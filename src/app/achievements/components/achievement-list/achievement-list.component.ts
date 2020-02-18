@@ -16,10 +16,12 @@ export class AchievementListComponent {
     }
 
     onRenderItems(event) {
-        console.log(`Moving item from ${event.detail.from} to ${event.detail.to}`);
-         let draggedItem = this.achievements.splice(event.detail.from,1)[0];
-         this.achievements.splice(event.detail.to,0,draggedItem)
+        //console.log(`Moving item from ${event.detail.from} to ${event.detail.to}`);
+        let draggedItem = this.achievements.splice(event.detail.from,1)[0];
+        this.achievements.splice(event.detail.to,0,draggedItem);
         event.detail.complete();
+        this.setNewOrder();
+        this.saveAchievementsToDb();
       };
 
     edit(el: IAchievement) {
@@ -27,22 +29,36 @@ export class AchievementListComponent {
     }
 
     delete(el: IAchievement){
-        console.log("Usuwanie elementu ", el.name);
+        //console.log("Usuwanie elementu ", el.name);
         let idx = this.achievements.findIndex(elem => elem.name == el.name && elem.tag == el.tag);
-        this.achievements.splice(idx,1);
         this.achievementService.deleteAchievement(el);
+    }
+
+    setNewOrder(){
+        let ctr = 1;
+        this.achievements.forEach(el => {
+            el.order = ctr;
+            ctr++;
+        });
+    }
+
+    saveAchievementsToDb(){
+        this.achievementService.putAchievementsToDb(this.achievements);
     }
 
     sort(dir: string){
         switch(dir){
             case 'asc':{
                 this.achievements.sort((a,b) => a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1);
+                //this.achievements.sort((a,b) => a.order > b.order ? 1 : -1);
                 break;
             }
             case 'desc':{
                 this.achievements.sort((a,b) => b.name.toLowerCase() > a.name.toLowerCase() ? 1 : -1);
+                //this.achievements.sort((a,b) => b.order > a.order ? 1 : -1);
                 break;
             }
         }
+        this.saveAchievementsToDb();
     }
 }
