@@ -6,5 +6,21 @@
     </ion-toolbar>
   </ion-header>
   
-  <ion-content>
+  <ion-content style="bottom: 8%; top: 0%" class="no-scroll">
+
+    <!-- <achievement-list [(achievements)]="dataList"></achievement-list> -->
+
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Loading more data...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+    <ion-fab center middle>
+      <ion-fab-button>
+        <ion-icon name="add" (click)="addNew()"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
   </ion-content>

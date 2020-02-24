@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+        Affirmation details
+        </ion-title>
+    </ion-toolbar>
+    
+    </ion-header>
+    
+    <ion-content>
+
+        <ion-item>
+            <ion-label position="floating">Your affirmation</ion-label>
+            <!-- <ion-input [(ngModel)]="achievement.name" name="name"></ion-input> -->
+            <ion-input [(ngModel)]="affirmationName"></ion-input>
+        </ion-item>
+
+    <ion-button color="success" (click)="save()">Save</ion-button>
+    <ion-button color="danger" (click)="cancel()">Cancel</ion-button>
+    
+</ion-content>

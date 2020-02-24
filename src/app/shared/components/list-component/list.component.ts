@@ -10,7 +10,7 @@ import { AchievementService } from '../../../achievements/services/achievement.s
 })
 export class ListComponent {
 
-    @Input() listElements: Array<IAchievement> = [];
+    @Input() listElements = [];
 
     constructor(private router: Router, private achievementService: AchievementService){
     }
