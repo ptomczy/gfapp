@@ -1,6 +1,7 @@
 import { IGoal } from "src/app/workplan/models/workplan.model";
 import { ITask } from 'src/app/taskplan/models/taskplan.model';
 import { IAchievement, AchievementCategory } from '../achievements/models/achievement.model';
+import { IAffirmation } from '../affirmations/models/affirmations.model';
 
 export const mockGoals: IGoal[] = [
     {id: 'n1', parentId: null, name: 'Cel mockowy nr 1', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'},
@@ -53,4 +54,19 @@ export let mockAchievements: IAchievement[] = [
     {order: 22, tag: AchievementCategory.personal, name: "Osiągnięcie W"},
     {order: 23, tag: AchievementCategory.personal, name: "Osiągnięcie Y"},
     {order: 24, tag: AchievementCategory.personal, name: "Osiągnięcie Z"}
+];
+
+export let mockAffirmations: IAffirmation[] = [
+    {order: 1, name: "Jestem zajebisty"},
+    {order: 2, name: "Jestem zwycięzcą"},
+    {order: 3, name: "Jestem najpiękniejszy"},
+    {order: 4, name: "Jestem najmądrzejszy"},
+    {order: 5, name: "Jestem superprzystojny"},
+    {order: 6, name: "Jestem najsprytniejszy"},
+    {order: 7, name: "Jestem najinteligentniejszy"},
+    {order: 8, name: "Jestem najzdolniejszy"},
+    {order: 9, name: "Jestem niesamowicie bystry"},
+    {order: 10, name: "Jestem uprzejmy"},
+    {order: 11, name: "Jestem zaskakujący"},
+    {order: 12, name: "Jestem nieprzewidywalny"}
 ]
