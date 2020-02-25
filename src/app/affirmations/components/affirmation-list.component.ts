@@ -1,5 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { IAffirmation } from '../models/affirmations.model';
+import { AffirmationService } from '../services/affirmation.service';
 
 
 @Component({
@@ -7,12 +8,16 @@ import { IAffirmation } from '../models/affirmations.model';
     templateUrl: 'affirmation-list.component.html',
     styleUrls: ['affirmation-list.component.scss']
 })
-export class AffirmationList {
+export class AffirmationListComponent {
 
-    private affirmations: Array<IAffirmation> = [];
+    @Input() affirmations: Array<IAffirmation> = [];
+
+    constructor(private affirmationService: AffirmationService){
+        
+    }
 
     onRenderItems(event) {
-        //console.log(`Moving item from ${event.detail.from} to ${event.detail.to}`);
+        console.log(`Moving item from ${event.detail.from} to ${event.detail.to}`);
         let draggedItem = this.affirmations.splice(event.detail.from,1)[0];
         this.affirmations.splice(event.detail.to,0,draggedItem);
         event.detail.complete();
@@ -20,12 +25,12 @@ export class AffirmationList {
         //this.saveAchievementsToDb();
       };
 
-      edit(){
-
+      edit(aff: IAffirmation){
+        console.log(aff);
       }
 
-      delete(){
-          
+      delete(aff: IAffirmation){
+          console.log(aff);
       }
 }
 

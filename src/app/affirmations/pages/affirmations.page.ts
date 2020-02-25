@@ -1,4 +1,7 @@
 import { Component } from "@angular/core";
+import { IAffirmation } from '../models/affirmations.model';
+import { AffirmationService } from '../services/affirmation.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'affirmations-page',
@@ -7,8 +10,16 @@ import { Component } from "@angular/core";
 })
 export class AffirmationsPage {
 
-    private dataList: Array<any> = [];
+    private dataList: Array<IAffirmation> = [];
 
+    constructor(private affirmationService: AffirmationService, private router: Router){
+      this.affirmationService.getAffirmations().subscribe(res => this.dataList = res);
+    }
+
+    startPresentation(){
+      console.log("Presentation started");
+      this.router.navigate(['affirmations/affpresentation', this.dataList]);
+    }
 
     addNew(){
 
