@@ -4,6 +4,7 @@
       <ion-reorder-group (ionItemReorder)="onRenderItems($event)" disabled="false">
           
               <ion-item *ngFor="let affirmation of affirmations">
+                <ion-toggle></ion-toggle>
                 <ion-label>{{affirmation.name}}</ion-label>
                 <ion-icon name="create" (click)="edit(affirmation)"></ion-icon>
                 <ion-icon name="trash" (click)="delete(affirmation)"></ion-icon>

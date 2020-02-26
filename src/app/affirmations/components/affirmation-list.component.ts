@@ -32,5 +32,9 @@ export class AffirmationListComponent {
       delete(aff: IAffirmation){
           console.log(aff);
       }
+
+      sort(dir: string) {
+          
+      }
 }
 
