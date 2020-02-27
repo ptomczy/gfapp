@@ -17,8 +17,8 @@ export class AffirmationsPage {
     }
 
     startPresentation(){
-      console.log("Presentation started");
-      this.router.navigate(['affirmations/affpresentation', this.dataList]);
+      this.affirmationService.setAffirmationsToPresent(this.dataList);
+      this.router.navigate(['affirmations/affpresentation']);
     }
 
     addNew(){

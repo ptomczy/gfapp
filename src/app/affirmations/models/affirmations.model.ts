@@ -1,4 +1,5 @@
 export interface IAffirmation {
     order: number,
-    name: string
+    name: string,
+    toPresent: boolean
 }

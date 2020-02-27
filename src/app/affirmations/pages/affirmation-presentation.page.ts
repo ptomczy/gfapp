@@ -1,6 +1,7 @@
-import { Component, Input } from "@angular/core";
+import { Component } from "@angular/core";
 import { IAffirmation } from '../models/affirmations.model';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AffirmationService } from '../services/affirmation.service';
 
 @Component({
     selector: 'presentation-page',
@@ -10,13 +11,34 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class AffirmationPresentationPage {
 
     private affirmations: Array<IAffirmation> = [];
+    private affirmationToPresent: IAffirmation;
+    private amountOfAffirmations: number;
+    private presentationCounter: number = 0;
 
-    constructor(private route: ActivatedRoute, private router: Router){
-        this.affirmations = this.route.snapshot.params as Array<IAffirmation>;
-        console.log("Affirmations: ", this.affirmations);
+    constructor(private router: Router, private affirmationService: AffirmationService){
+        this.affirmationService.getAffirmationsToPresent().then(res => {
+            this.affirmations = res;
+            this.amountOfAffirmations = this.affirmations.length;
+            this.affirmationToPresent = this.affirmations[this.presentationCounter];
+        })
+    }
+
+    ionViewWillEnter(){
+
     }
 
     recallAffirmationsPage(){
         this.router.navigate(['affirmations']);
+    }
+
+    presentNextAffirmation(){
+        this.presentationCounter++;
+        
+        if (this.presentationCounter == this.amountOfAffirmations){
+            this.presentationCounter = 0;
+        };
+
+        this.affirmationToPresent = this.affirmations[this.presentationCounter];
+
     }
 }

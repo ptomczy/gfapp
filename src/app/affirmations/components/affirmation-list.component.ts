@@ -36,5 +36,9 @@ export class AffirmationListComponent {
       sort(dir: string) {
           
       }
+
+      afSelection(element: IAffirmation){
+        console.log("afSelection: selected: ", element.name);
+      }
 }
 

@@ -57,16 +57,16 @@ export let mockAchievements: IAchievement[] = [
 ];
 
 export let mockAffirmations: IAffirmation[] = [
-    {order: 1, name: "Jestem zajebisty"},
-    {order: 2, name: "Jestem zwycięzcą"},
-    {order: 3, name: "Jestem najpiękniejszy"},
-    {order: 4, name: "Jestem najmądrzejszy"},
-    {order: 5, name: "Jestem superprzystojny"},
-    {order: 6, name: "Jestem najsprytniejszy"},
-    {order: 7, name: "Jestem najinteligentniejszy"},
-    {order: 8, name: "Jestem najzdolniejszy"},
-    {order: 9, name: "Jestem niesamowicie bystry"},
-    {order: 10, name: "Jestem uprzejmy"},
-    {order: 11, name: "Jestem zaskakujący"},
-    {order: 12, name: "Jestem nieprzewidywalny"}
+    {order: 1, name: "Jestem zajebisty", toPresent: false},
+    {order: 2, name: "Jestem zwycięzcą", toPresent: true},
+    {order: 3, name: "Jestem najpiękniejszy", toPresent: true},
+    {order: 4, name: "Jestem najmądrzejszy", toPresent: false},
+    {order: 5, name: "Jestem superprzystojny", toPresent: false},
+    {order: 6, name: "Jestem najsprytniejszy", toPresent: true},
+    {order: 7, name: "Jestem najinteligentniejszy", toPresent: false},
+    {order: 8, name: "Jestem najzdolniejszy", toPresent: false},
+    {order: 9, name: "Jestem niesamowicie bystry", toPresent: false},
+    {order: 10, name: "Jestem uprzejmy", toPresent: true},
+    {order: 11, name: "Jestem zaskakujący", toPresent: false},
+    {order: 12, name: "Jestem nieprzewidywalny", toPresent: false}
 ]
