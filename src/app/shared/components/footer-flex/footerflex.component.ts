@@ -49,7 +49,7 @@ export class FooterFlexComponent {
                         this.buttonAffirmationsCaption = 'Home';
                         this.turnOffOtherHomeCaptionsBut('Affirmations');
                         this.isHomeCaptionDisplayed = true;
-                        this.rtr.navigateByUrl('/affirmations');
+                        this.rtr.navigateByUrl('/affirmations/affpresentation');
                     }
                     break;
                 }

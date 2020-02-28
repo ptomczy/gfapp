@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { IAffirmation } from '../models/affirmations.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AffirmationService } from '../services/affirmation.service';
@@ -14,21 +14,28 @@ export class AffirmationPresentationPage {
     private affirmationToPresent: IAffirmation;
     private amountOfAffirmations: number;
     private presentationCounter: number = 0;
+    private timeInterval;
 
     constructor(private router: Router, private affirmationService: AffirmationService){
-        this.affirmationService.getAffirmationsToPresent().then(res => {
+        this.affirmationService.getAffirmationsToPresentDirectly().then(res => {
             this.affirmations = res;
             this.amountOfAffirmations = this.affirmations.length;
             this.affirmationToPresent = this.affirmations[this.presentationCounter];
         })
     }
 
-    ionViewWillEnter(){
-
-    }
-
     recallAffirmationsPage(){
         this.router.navigate(['affirmations']);
+    }
+
+    ionViewDidEnter(){
+        this.timeInterval = setInterval(() => {
+            this.presentNextAffirmation();
+        }, 1000);
+    }
+
+    ionViewDidLeave(){
+        clearInterval(this.timeInterval);
     }
 
     presentNextAffirmation(){
