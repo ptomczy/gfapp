@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'one-affirmation',
@@ -7,7 +8,11 @@ import { Component } from "@angular/core";
 })
 export class OneAffirmationPage {
 
-    private affirmationName: string = "Nazwa affirmation"
+    private affirmationName: string = "Nazwa affirmation";
+
+    constructor(private router: Router){
+
+    }
 
     save(){
 
@@ -15,5 +20,9 @@ export class OneAffirmationPage {
 
     cancel(){
 
+    }
+
+    addFromLibrary(){
+        this.router.navigate(['affirmations/affirmations-library']);
     }
 }

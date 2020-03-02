@@ -8,9 +8,10 @@ import { FormsModule } from '@angular/forms';
 import { AffirmationService } from './services/affirmation.service';
 import { AffirmationListComponent } from './components/affirmation-list.component';
 import { AffirmationPresentationPage } from './pages/affirmation-presentation.page';
+import { AffirmationsLibraryPage } from './pages/affirmation-library.page';
 
 @NgModule({
-    declarations: [AffirmationsPage, OneAffirmationPage, AffirmationListComponent, AffirmationPresentationPage],
+    declarations: [AffirmationsPage, OneAffirmationPage, AffirmationListComponent, AffirmationPresentationPage, AffirmationsLibraryPage],
     imports: [AffirmationRoutingModule, CommonModule, IonicModule, FormsModule],
     providers: [AffirmationService]
 })

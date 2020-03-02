@@ -17,11 +17,7 @@ export class AffirmationPresentationPage {
     private timeInterval;
 
     constructor(private router: Router, private affirmationService: AffirmationService){
-        this.affirmationService.getAffirmationsToPresentDirectly().then(res => {
-            this.affirmations = res;
-            this.amountOfAffirmations = this.affirmations.length;
-            this.affirmationToPresent = this.affirmations[this.presentationCounter];
-        })
+
     }
 
     recallAffirmationsPage(){
@@ -29,6 +25,11 @@ export class AffirmationPresentationPage {
     }
 
     ionViewDidEnter(){
+        this.affirmationService.getAffirmationsToPresentDirectly().then(res => {
+            this.affirmations = res;
+            this.amountOfAffirmations = this.affirmations.length;
+            this.affirmationToPresent = this.affirmations[this.presentationCounter];
+        })
         this.timeInterval = setInterval(() => {
             this.presentNextAffirmation();
         }, 1000);
