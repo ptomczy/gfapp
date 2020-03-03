@@ -57,7 +57,7 @@ export let mockAchievements: IAchievement[] = [
 ];
 
 export let mockAffirmations: IAffirmation[] = [
-    {order: 1, name: "Jestem zajebisty", toPresent: false},
+    {order: 1, name: "Z biblioteki 1", toPresent: true},
     {order: 2, name: "Jestem zwycięzcą", toPresent: true},
     {order: 3, name: "Jestem najpiękniejszy", toPresent: true},
     {order: 4, name: "Jestem najmądrzejszy", toPresent: false},

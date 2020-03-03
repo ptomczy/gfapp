@@ -22,7 +22,7 @@ export class AffirmationsPage {
     }
 
     addNew(){
-
+      this.router.navigate(['affirmations/one-affirmation']);
     }
 
     loadData(event) {

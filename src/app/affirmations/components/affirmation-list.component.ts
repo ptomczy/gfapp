@@ -31,6 +31,7 @@ export class AffirmationListComponent {
 
       delete(aff: IAffirmation){
           console.log(aff);
+          this.affirmationService.deleteAffirmationFromPresented(aff);
       }
 
       sort(dir: string) {

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { IAffirmation } from '../models/affirmations.model';
-import { mockAffirmations } from 'src/app/mocks/para-database';
+import { mockAffirmations, mockAffirmationsLibrary } from 'src/app/mocks/para-database';
 import { Observable } from 'rxjs'
 import { resolve } from 'url';
 
@@ -13,6 +13,7 @@ export class AffirmationService {
     getAffirmations(): Observable<Array<IAffirmation>> {
         return new Observable(obs => {
             obs.next(mockAffirmations);
+            this.affirmationsToPresent = mockAffirmations;
         })
     }
 
@@ -30,6 +31,19 @@ export class AffirmationService {
             this.alreadyRecalledDataToPresent = true;
             res(this.affirmationsToPresent);
         })
+    }
+
+    addAffirmationsSelectedFromLibrary(pack: Array<IAffirmation>){
+        pack.forEach(el => el.toPresent = true);
+        this.getAffirmations();
+        this.affirmationsToPresent.push(...pack);
+    }
+
+    deleteAffirmationFromPresented(aff: IAffirmation){
+        let idxToDel = this.affirmationsToPresent.findIndex(el => el.name == aff.name);
+        console.log("Do skasowania: ", idxToDel);
+        this.affirmationsToPresent.splice(idxToDel, 1);
+        console.log("Affirmations to present: ", this.affirmationsToPresent);
     }
 
 }

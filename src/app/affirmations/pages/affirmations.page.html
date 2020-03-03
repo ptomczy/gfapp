@@ -7,7 +7,9 @@
   </ion-header>
   
   <ion-content style="bottom: 8%; top: 0%" class="no-scroll">
-
+    <ion-button size="large" color="danger" (click)="startPresentation()">
+      <ion-icon name="play"></ion-icon  >
+   </ion-button>
     <affirmation-list [(affirmations)]="dataList"></affirmation-list>
 
     <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
@@ -17,9 +19,7 @@
       </ion-infinite-scroll-content>
     </ion-infinite-scroll>
 
-    <ion-button size="large" color="danger" (click)="startPresentation()">
-      <ion-icon name="play"></ion-icon  >
-   </ion-button>
+
 
     <ion-fab center middle>
       <ion-fab-button>
