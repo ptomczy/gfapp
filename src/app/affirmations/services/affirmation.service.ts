@@ -33,10 +33,16 @@ export class AffirmationService {
         })
     }
 
-    addAffirmationsSelectedFromLibrary(pack: Array<IAffirmation>){
-        pack.forEach(el => el.toPresent = true);
-        this.getAffirmations();
-        this.affirmationsToPresent.push(...pack);
+    addAffirmations(pack: Array<IAffirmation>){
+        this.getAffirmations().subscribe(() => {
+            let tmpCtr: number = 0;
+            let affLen: number = this.affirmationsToPresent.length;
+            pack.forEach(el => {
+                el.order = affLen + ++tmpCtr;
+                el.toPresent = true;
+            });
+            this.affirmationsToPresent.push(...pack);
+        });
     }
 
     deleteAffirmationFromPresented(aff: IAffirmation){

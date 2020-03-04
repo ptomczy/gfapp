@@ -3,3 +3,8 @@ export interface IAffirmation {
     name: string,
     toPresent: boolean
 }
+
+export enum IMode {
+    new = 0,
+    edit
+}

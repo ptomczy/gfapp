@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { IAffirmation } from '../models/affirmations.model';
+import { IAffirmation, IMode } from '../models/affirmations.model';
 import { AffirmationService } from '../services/affirmation.service';
 import { Router } from '@angular/router';
 

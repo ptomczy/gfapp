@@ -1,6 +1,7 @@
 import { Component, Input } from "@angular/core";
-import { IAffirmation } from '../models/affirmations.model';
+import { IAffirmation, IMode } from '../models/affirmations.model';
 import { AffirmationService } from '../services/affirmation.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,8 +13,7 @@ export class AffirmationListComponent {
 
     @Input() affirmations: Array<IAffirmation> = [];
 
-    constructor(private affirmationService: AffirmationService){
-        
+    constructor(private affirmationService: AffirmationService, private router: Router){ 
     }
 
     onRenderItems(event) {
@@ -21,16 +21,13 @@ export class AffirmationListComponent {
         let draggedItem = this.affirmations.splice(event.detail.from,1)[0];
         this.affirmations.splice(event.detail.to,0,draggedItem);
         event.detail.complete();
-        //this.setNewOrder();
-        //this.saveAchievementsToDb();
       };
 
       edit(aff: IAffirmation){
-        console.log(aff);
+        this.router.navigate(['affirmations/one-affirmation', aff]);
       }
 
       delete(aff: IAffirmation){
-          console.log(aff);
           this.affirmationService.deleteAffirmationFromPresented(aff);
       }
 

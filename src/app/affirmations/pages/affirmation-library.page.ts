@@ -24,11 +24,11 @@ export class AffirmationsLibraryPage {
     save(){
         this.affirmations = this.affirmations.filter(el => el['isChecked'] == true);
         this.affirmations.map(el => delete el['isChecked']);
-        this.affService.addAffirmationsSelectedFromLibrary(this.affirmations);
+        this.affService.addAffirmations(this.affirmations);
         this.router.navigate(['affirmations']);
     }
 
     cancel(){
-
+        this.router.navigate(['affirmations/one-affirmation']);
     }
 }
