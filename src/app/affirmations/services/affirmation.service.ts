@@ -52,4 +52,9 @@ export class AffirmationService {
         console.log("Affirmations to present: ", this.affirmationsToPresent);
     }
 
+    editAffirmation(oldAff: IAffirmation, newName: string) {
+        let idx = this.affirmationsToPresent.findIndex(x => x.name == oldAff.name);
+        this.affirmationsToPresent[idx].name = newName;
+    }
+
 }

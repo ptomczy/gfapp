@@ -1,15 +1,13 @@
 <ion-header>
     <ion-toolbar>
       <ion-title>
-        Affirmations page
+        My affirmations
       </ion-title>
     </ion-toolbar>
   </ion-header>
   
   <ion-content style="bottom: 8%; top: 0%" class="no-scroll">
-    <ion-button size="large" color="danger" (click)="startPresentation()">
-      <ion-icon name="play"></ion-icon  >
-   </ion-button>
+
     <affirmation-list [(affirmations)]="dataList"></affirmation-list>
 
     <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
@@ -19,12 +17,14 @@
       </ion-infinite-scroll-content>
     </ion-infinite-scroll>
 
-
-
     <ion-fab center middle>
       <ion-fab-button>
         <ion-icon name="add" (click)="addNew()"></ion-icon>
       </ion-fab-button>
     </ion-fab>
+
+    <ion-button class="play" size="large" color="danger" (click)="startPresentation()">
+      <ion-icon name="play"></ion-icon  >
+   </ion-button>
 
   </ion-content>

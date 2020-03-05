@@ -9,13 +9,14 @@
     
     <ion-content>
         <ion-button color="warning" (click)="addFromLibrary()">Add from library</ion-button>
-        <ion-item>
-            <ion-label position="floating">Your affirmation</ion-label>
-            <!-- <ion-input [(ngModel)]="achievement.name" name="name"></ion-input> -->
-            <ion-input [(ngModel)]="affirmationName"></ion-input>
-        </ion-item>
+        <form [formGroup]="affForm">
+            <ion-item>
+                <ion-label position="floating">Your affirmation</ion-label>
+                <ion-input formControlName="affName" [(ngModel)]="affirmationName"></ion-input>
+            </ion-item>
+        </form>
 
-    <ion-button color="success" (click)="save()">Save</ion-button>
+    <ion-button color="success" (click)="save()" [disabled]="!affForm.valid">Save</ion-button>
     <ion-button color="danger" (click)="cancel()">Cancel</ion-button>
     
 </ion-content>
