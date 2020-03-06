@@ -3,17 +3,15 @@
       <ion-title slot="start">
         HomePage
       </ion-title>
-
       <button style="margin-right: 15px" ion-button icon-only slot="end" (click)="exitButtonClicked()">
         <ion-icon style="font-size: 30px" name="log-out"></ion-icon>
       </button>
-
-      
     </ion-toolbar>
   </ion-header>
   
   <ion-content>
-
+    <p>Viewer for Goal structure</p>
+    <br/>
     <task-list [tasks]="todayTasks" [scopeModeInfo]="taskListScopeInfo"></task-list>
 
     <div class="button-position">

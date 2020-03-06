@@ -6,20 +6,22 @@
     </ion-toolbar>
   </ion-header>
   
-  <ion-content style="bottom: 8%; top: 0%" class="no-scroll">
+  <ion-content> <!--   >style="bottom: 8%; top: 0%"> -->
 
-    <achievement-list [(achievements)]="dataList"></achievement-list>
+    <div>
+      <achievement-list [(achievements)]="dataList"></achievement-list>
+    </div>
 
-    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)" >
       <ion-infinite-scroll-content
         loadingSpinner="bubbles"
         loadingText="Loading more data...">
       </ion-infinite-scroll-content>
     </ion-infinite-scroll>
 
-    <ion-fab class="main" horizontal="end" vertical="bottom" slot="fixed">
-      <ion-fab-button color="dark">
-        <ion-icon name="arrow-dropup"></ion-icon>
+    <ion-fab class="fab-fixed-position" horizontal="end" vertical="bottom" slot="fixed">
+      <ion-fab-button color="primary">
+        <ion-icon name="arrow-up"></ion-icon>
       </ion-fab-button>
       <ion-fab-list side="top">
         <ion-button 

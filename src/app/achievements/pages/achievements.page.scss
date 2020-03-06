@@ -1,4 +1,4 @@
-.main {
+.fab-fixed-position {
     position: fixed;
     right: 10%;
     bottom: 10%;
@@ -29,5 +29,14 @@ ion-chip ion-label{
     width: 200px;
     --background-color: red;;
 }
+ion-content {
+    // overwrite inline styles
+    --offset-bottom: auto!important;
+    --overflow: hidden;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 
 

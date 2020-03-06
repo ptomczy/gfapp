@@ -24,10 +24,14 @@ export class AffirmationPresentationPage {
         this.router.navigate(['affirmations']);
     }
 
-    ionViewDidEnter(){
+    ionViewWillEnter(){
         this.affirmationService.getAffirmationsToPresentDirectly().then(res => {
             this.affirmations = res;
             this.amountOfAffirmations = this.affirmations.length;
+
+            if (this.presentationCounter >= this.amountOfAffirmations){
+                this.presentationCounter = 0;
+            };
             this.affirmationToPresent = this.affirmations[this.presentationCounter];
         })
         this.timeInterval = setInterval(() => {
@@ -42,7 +46,7 @@ export class AffirmationPresentationPage {
     presentNextAffirmation(){
         this.presentationCounter++;
         
-        if (this.presentationCounter == this.amountOfAffirmations){
+        if (this.presentationCounter >= this.amountOfAffirmations){
             this.presentationCounter = 0;
         };
 

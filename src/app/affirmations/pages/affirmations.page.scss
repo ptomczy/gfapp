@@ -1,12 +1,28 @@
-ion-fab[middle] {
-    bottom: 10%;
-}
-ion-fab[center]{
-    right: 5%;
-}
+// ion-fab[middle] {
+//     bottom: 10%;
+// }
+// ion-fab[center]{
+//     right: 5%;
+// }
 
-.play {
-    
-    bottom: 20%;
-    right: 5%;
-}
+ion-content {
+    // overwrite inline styles
+    --offset-bottom: auto!important;
+    --overflow: hidden;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .fab-fixed-position {
+    position: fixed;
+    right: 10%;
+    bottom: 10%;
+  }
+
+  .play {
+    position: fixed;
+    right: 25%;
+    bottom: 10%;
+  }
