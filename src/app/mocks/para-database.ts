@@ -20,13 +20,13 @@ export const mockGoals: IGoal[] = [
 ];
 
 export const mockTasks: ITask[] = [
-    {userId: 'df', id: 't1', name: 'Task mockowy 1', date: 'dataTaskaToday', status: 1, isObsolete: false, category: 1, priority: 1},
-    {userId: 'df', id: 't2', name: 'Task mockowy 2', date: 'dataTaskaToday', status: 1, isObsolete: false, category: 1, priority: 2},
-    {userId: 'df', id: 't3', name: 'Task mockowy 3', date: 'dataTaskaToday', status: 1, isObsolete: false, category: 1, priority: 3},
-    {userId: 'df', id: 't4', name: 'Task mockowy 4', date: 'dataTaskaToday', status: 1, isObsolete: false, category: 2, priority: 1},
-    {userId: 'df', id: 't5', name: 'Task mockowy 5', date: 'dataTaskaTommorow', status: 1, isObsolete: false, category: 3, priority: 1},
-    {userId: 'df', id: 't6', name: 'Task mockowy 6', date: 'dataTaskaTommorow', status: 1, isObsolete: false, category: 3, priority: 2},
-    {userId: 'df', id: 't7', name: 'Task mockowy 7', date: 'dataTaskaTommorow', status: 1, isObsolete: false, category: 3, priority: 3},
+    {userId: 'df', id: 't1', goalId: 'n2', name: 'Task mockowy 1', date: 'dataTaskaToday', status: 1, isObsolete: false, category: 1, priority: 1},
+    {userId: 'df', id: 't2', goalId: 'n2', name: 'Task mockowy 2', date: 'dataTaskaToday', status: 1, isObsolete: false, category: 1, priority: 2},
+    {userId: 'df', id: 't3', goalId: 'n3', name: 'Task mockowy 3', date: 'dataTaskaToday', status: 1, isObsolete: false, category: 1, priority: 3},
+    {userId: 'df', id: 't4', goalId: 'n4', name: 'Task mockowy 4', date: 'dataTaskaToday', status: 1, isObsolete: false, category: 2, priority: 1},
+    {userId: 'df', id: 't5', goalId: 'n6', name: 'Task mockowy 5', date: 'dataTaskaTommorow', status: 1, isObsolete: false, category: 3, priority: 1},
+    {userId: 'df', id: 't6', goalId: 'n6', name: 'Task mockowy 6', date: 'dataTaskaTommorow', status: 1, isObsolete: false, category: 3, priority: 2},
+    {userId: 'df', id: 't7', goalId: 'n7', name: 'Task mockowy 7', date: 'dataTaskaTommorow', status: 1, isObsolete: false, category: 3, priority: 3},
 ];
 
 export let mockAchievements: IAchievement[] = [

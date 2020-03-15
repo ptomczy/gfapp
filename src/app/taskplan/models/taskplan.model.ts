@@ -12,6 +12,7 @@ export enum TaskCategory {
 export interface ITask {
     userId: string;
     id: string;
+    goalId: string;
     name: string;
     date: string;
     status: TaskStatus;
