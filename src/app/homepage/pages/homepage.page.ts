@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 const emptyTask: ITask = {
         userId: '',
         id: '',
+        goalId: '',
         name: '',
         date: '',
         status: TaskStatus.set,

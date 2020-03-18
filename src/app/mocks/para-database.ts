@@ -4,19 +4,19 @@ import { IAchievement, AchievementCategory } from '../achievements/models/achiev
 import { IAffirmation } from '../affirmations/models/affirmations.model';
 
 export const mockGoals: IGoal[] = [
-    {id: 'n1', parentId: null, name: 'Cel mockowy nr 1', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'},
-    {id: 'n2', parentId: null, name: 'Cel mockowy nr 2', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'},
-    {id: 'n3', parentId: null, name: 'Cel mockowy nr 3', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'},
-    {id: 'n4', parentId: 'n1', name: 'Cel mockowy nr 4', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'},
-    {id: 'n5', parentId: 'n3', name: 'Cel mockowy nr 5', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'},
-    {id: 'n6', parentId: 'n5', name: 'Cel mockowy nr 6', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'},
-    {id: 'n7', parentId: null, name: 'Cel mockowy nr 7', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'},
-    {id: 'n8', parentId: null, name: 'Cel mockowy nr 8', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'},
-    {id: 'n9', parentId: 'n8', name: 'Cel mockowy nr 9', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'},
-    {id: 'n10', parentId: 'n9', name: 'Cel mockowy nr 10', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'},
-    {id: 'n11', parentId: null, name: 'Cel mockowy nr 11', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'},
-    {id: 'n12', parentId: null, name: 'Cel mockowy nr 12', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'},
-    {id: 'n13', parentId: null, name: 'Cel mockowy nr 13', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'}
+    {id: 'n1', parentId: null, level: 0, name: 'Cel mockowy nr 1', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'},
+    {id: 'n2', parentId: null, level: 0, name: 'Cel mockowy nr 2', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'},
+    {id: 'n3', parentId: null, level: 0, name: 'Cel mockowy nr 3', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'},
+    {id: 'n4', parentId: 'n1', level: 1, name: 'Cel mockowy nr 4', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'},
+    {id: 'n5', parentId: 'n3', level: 1, name: 'Cel mockowy nr 5', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'},
+    {id: 'n6', parentId: 'n5', level: 2, name: 'Cel mockowy nr 6', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'},
+    {id: 'n7', parentId: null, level: 0, name: 'Cel mockowy nr 7', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'},
+    {id: 'n8', parentId: null, level: 0, name: 'Cel mockowy nr 8', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'},
+    {id: 'n9', parentId: 'n8', level: 1, name: 'Cel mockowy nr 9', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'},
+    {id: 'n10', parentId: 'n9', level: 2, name: 'Cel mockowy nr 10', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'},
+    {id: 'n11', parentId: null, level: 0, name: 'Cel mockowy nr 11', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'},
+    {id: 'n12', parentId: null, level: 0, name: 'Cel mockowy nr 12', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'},
+    {id: 'n13', parentId: null, level: 0, name: 'Cel mockowy nr 13', description: 'brak opisu', startDate: 'dataS', endDate: 'dataK', timeSpent: 'x', lastActivityDate: 'y'}
 ];
 
 export const mockTasks: ITask[] = [

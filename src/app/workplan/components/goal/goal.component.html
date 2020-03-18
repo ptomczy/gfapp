@@ -1,3 +1,23 @@
-<ion-item>
-    
-</ion-item>
+<mat-slide-toggle [(ngModel)]="chk" (change)="checkChange()">Pokaż właściwy komponent</mat-slide-toggle>
+<div *ngIf="!chk">
+  <div class="example-container">
+    <h2>To do</h2>
+
+    <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[doneList]"
+      class="example-list" (cdkDropListDropped)="drop($event, goals1, goals0)">
+      <div class="example-box" *ngFor="let item of goals0" cdkDrag>{{item.name}}</div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>Done</h2>
+
+    <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]"
+      class="example-list" (cdkDropListDropped)="drop($event, goals0, goals1)">
+      <div class="example-box" *ngFor="let item of goals1" cdkDrag>{{item.name}}</div>
+    </div>
+  </div>
+</div>
+<div *ngIf="chk">
+  <p>Dupa</p>
+</div>

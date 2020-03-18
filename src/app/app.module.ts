@@ -13,6 +13,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from 'src/environments/environment';
 import { AuthGuard } from './shared/services/auth-guard.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +25,8 @@ import { AuthGuard } from './shared/services/auth-guard.service';
     AppRoutingModule, 
     SharedModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, 'angular-auth-firebase'),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BrowserAnimationsModule
   ],
   providers: [
     StatusBar,
